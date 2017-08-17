@@ -23,6 +23,11 @@ public class App {
     @Autowired
     private BookService bookService;
 
+    @Bean
+    public RestTemplate rest(RestTemplateBuilder builder) {
+        return builder.build();
+    }
+
     @RequestMapping(value = "/to-read", method = RequestMethod.GET)
     public String transfer() {
         log.info("Asking server for important message");
