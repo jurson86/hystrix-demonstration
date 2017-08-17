@@ -1,0 +1,11 @@
+mainClassName = "se.roger.App"
+group = 'se.roger'
+
+jar {
+  manifest {
+    attributes(
+      'Main-Class': 'se.roger.App'
+    )
+  }
+}
+
