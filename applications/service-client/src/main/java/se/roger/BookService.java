@@ -16,7 +16,9 @@ public class BookService {
     }
 
     @HystrixCommand(fallbackMethod = "reliable", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000"),
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "20000"),
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "10")
     })
     public String readingList() {
         URI uri = URI.create("http://localhost:8000/recommended");
